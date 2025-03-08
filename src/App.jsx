@@ -51,12 +51,15 @@ function App() {
 
 
   return (
-    <div className="min-h-screen bg-yellow-50 p-6">
+    <div className="min-h-screen p-6">
       {/* Header with Theme Colors */}
-      <header className="bg-orange-600 text-white text-center py-6 rounded-xl shadow-md">
-        <h1 className="text-4xl font-bold">✨ Festival Rangoli Collection ✨</h1>
-        <p className="text-lg mt-1">Celebrate Every Occasion with Stunning Rangoli Designs</p>
+      <header className="flex flex-col sm:flex-row justify-between items-center py-4 px-6 border-b-4 border-orange-500 shadow-md">
+        <img src={logo} alt="Swami Creations" className="h-12" />
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-orange-700 text-center sm:text-left">
+          ✨ Swami Creations ✨
+        </h1>
       </header>
+
 
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
