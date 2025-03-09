@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css'
 import CircularRangoli from './images/circular-rangoli.jpeg';
 import CornerPiece from './images/cirner-piece.jpeg';
@@ -20,6 +21,7 @@ import WelcomeLady from './images/welcome-lady.jpeg';
 import logo from './images/logo.jpeg';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('readyRangoli');
 
   const projects = [
     {
@@ -127,8 +129,8 @@ function App() {
     }
   };
 
-  const handleEnquire = (title) => {
-    const message = `Hello, I would like to enquire about the ${title} rangoli.`;
+  const handleEnquire = (title, imgUrl) => {
+    const message = `Hello, I would like to enquire about the ${title} rangoli. Here is the image: ${imgUrl}`;
     const whatsappNumber = "+919881987729";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
@@ -143,34 +145,78 @@ function App() {
           ✨ Swami Creations ✨
         </h1>
       </header>
-      {/* Subheader */}
-      <div className="text-center my-8">
-        <h2 className="text-2xl font-bold text-orange-700">Beautiful Ready Rangoli – Instant Elegance for Every Celebration!</h2>
-        <p className="text-gray-700 mt-2">Decorate your space effortlessly with vibrant, pre-designed rangolis—perfect for festivals, weddings, and special occasions. Handmade custom rangolis are also available to suit your unique style and preferences.</p>
+
+      {/* Tabs */}
+      <div className="flex justify-start my-8">
+        <button
+          className={`px-4 py-2 mx-2 ${activeTab === 'readyRangoli' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+          onClick={() => setActiveTab('readyRangoli')}
+        >
+          Ready Rangoli
+        </button>
+        <button
+          className={`px-4 py-2 mx-2 ${activeTab === 'matRangoli' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+          onClick={() => setActiveTab('matRangoli')}
+        >
+          Mat Rangoli
+        </button>
+        <button
+          className={`px-4 py-2 mx-2 ${activeTab === 'motiArt' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+          onClick={() => setActiveTab('motiArt')}
+        >
+          Moti Art
+        </button>
       </div>
 
-      {/* Cards Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-        {projects.map((card, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 flex flex-col">
-            <div className="zoom-container">
-              <img className="w-full h-40 object-contain zoom" src={card.img} alt={card.title} onClick={handleZoom} />
-            </div>
-            <div className="p-4 flex-grow">
-              <h2 className="text-xl font-semibold text-orange-700">{card.title}</h2>
-              <p className="text-gray-700">{card.description}</p>
-            </div>
-            <div className="p-4">
-              <button
-                className="mt-4 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 w-full"
-                onClick={() => handleEnquire(card.title)}
-              >
-                Enquire on WhatsApp
-              </button>
-            </div>
+      {/* Content */}
+      {activeTab === 'readyRangoli' && (
+        <>
+          {/* Subheader */}
+          <div className="text-center my-8">
+            <h2 className="text-2xl font-bold text-orange-700">Beautiful Ready Rangoli – Instant Elegance for Every Celebration!</h2>
+            <p className="text-gray-700 mt-2">Decorate your space effortlessly with vibrant, pre-designed rangolis—perfect for festivals, weddings, and special occasions. Handmade custom rangolis are also available to suit your unique style and preferences.</p>
           </div>
-        ))}
-      </div>
+
+          {/* Cards Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
+            {projects.map((card, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 flex flex-col">
+                <div className="zoom-container">
+                  <img className="w-full h-40 object-contain zoom" src={card.img} alt={card.title} onClick={handleZoom} />
+                </div>
+                <div className="p-4 flex-grow">
+                  <h2 className="text-xl font-semibold text-orange-700">{card.title}</h2>
+                  <p className="text-gray-700">{card.description}</p>
+                </div>
+                <div className="p-4">
+                  <button
+                    className="mt-4 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 w-full"
+                    onClick={() => handleEnquire(card.title, card.img)}
+                  >
+                    Enquire on WhatsApp
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {activeTab === 'matRangoli' && (
+        <div className="text-center my-8">
+          <h2 className="text-2xl font-bold text-orange-700">Mat Rangoli</h2>
+          <p className="text-gray-700 mt-2">Discover our beautiful collection of Mat Rangoli, perfect for adding a touch of elegance and tradition to your home decor.</p>
+          {/* Add Mat Rangoli content here */}
+        </div>
+      )}
+
+      {activeTab === 'motiArt' && (
+        <div className="text-center my-8">
+          <h2 className="text-2xl font-bold text-orange-700">Moti Art</h2>
+          <p className="text-gray-700 mt-2">Explore our exquisite collection of Moti Art, perfect for adding a touch of elegance and tradition to your home decor.</p>
+          {/* Add Moti Art content here */}
+        </div>
+      )}
 
       {/* Footer with Matching Theme */}
       <footer className="mt-12 bg-orange-700 text-yellow-200 text-center py-6 rounded-xl shadow-md">
@@ -187,4 +233,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
