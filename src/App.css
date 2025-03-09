@@ -5,6 +5,21 @@
   text-align: center;
 }
 
+.zoom-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom {
+  transition: transform 0.3s ease-in-out;
+  cursor: zoom-in;
+}
+
+.zoomed {
+  cursor: zoom-out;
+  transform: scale(2);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

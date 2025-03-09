@@ -114,6 +114,19 @@ function App() {
     }
   ];
 
+  const handleZoom = (e) => {
+    const img = e.target;
+    if (img.classList.contains('zoomed')) {
+      img.classList.remove('zoomed');
+      img.style.transform = 'scale(1)';
+      img.style.cursor = 'zoom-in';
+    } else {
+      img.classList.add('zoomed');
+      img.style.transform = 'scale(2)';
+      img.style.cursor = 'zoom-out';
+    }
+  };
+
   return (
     <div className="min-h-screen p-6">
       {/* Header with Theme Colors */}
@@ -128,7 +141,9 @@ function App() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {projects.map((card, index) => (
           <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-            <img className="w-full h-40 object-contain" src={card.img} alt={card.title} />
+            <div className="zoom-container">
+              <img className="w-full h-40 object-contain zoom" src={card.img} alt={card.title} onClick={handleZoom} />
+            </div>
             <div className="p-4">
               <h2 className="text-xl font-semibold text-orange-700">{card.title}</h2>
               <p className="text-gray-700">{card.description}</p>
