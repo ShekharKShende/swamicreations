@@ -1,6 +1,6 @@
 import './App.css'
-import image1 from './images/1.jpeg';
-import image2 from './images/2.jpeg';
+import image1 from './images/circular-rangoli.jpeg';
+import image2 from './images/cirner-piece.jpeg';
 import image3 from './images/3.jpeg';
 import logo from './images/logo.jpeg';
 
