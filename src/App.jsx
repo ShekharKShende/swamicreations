@@ -127,6 +127,13 @@ function App() {
     }
   };
 
+  const handleEnquire = (title) => {
+    const message = `Hello, I would like to enquire about the ${title} rangoli.`;
+    const whatsappNumber = "+919881987729";
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+  };
+
   return (
     <div className="min-h-screen p-6">
       {/* Header with Theme Colors */}
@@ -136,17 +143,30 @@ function App() {
           ✨ Swami Creations ✨
         </h1>
       </header>
+      {/* Subheader */}
+      <div className="text-center my-8">
+        <h2 className="text-2xl font-bold text-orange-700">Beautiful Ready Rangoli – Instant Elegance for Every Celebration!</h2>
+        <p className="text-gray-700 mt-2">Decorate your space effortlessly with vibrant, pre-designed rangolis—perfect for festivals, weddings, and special occasions.</p>
+      </div>
 
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {projects.map((card, index) => (
-          <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+          <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 flex flex-col">
             <div className="zoom-container">
               <img className="w-full h-40 object-contain zoom" src={card.img} alt={card.title} onClick={handleZoom} />
             </div>
-            <div className="p-4">
+            <div className="p-4 flex-grow">
               <h2 className="text-xl font-semibold text-orange-700">{card.title}</h2>
               <p className="text-gray-700">{card.description}</p>
+            </div>
+            <div className="p-4">
+              <button
+                className="mt-4 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 w-full"
+                onClick={() => handleEnquire(card.title)}
+              >
+                Enquire on WhatsApp
+              </button>
             </div>
           </div>
         ))}
