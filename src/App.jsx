@@ -1,54 +1,118 @@
 import './App.css'
-import image1 from './images/circular-rangoli.jpeg';
-import image2 from './images/cirner-piece.jpeg';
-import image3 from './images/3.jpeg';
+import CircularRangoli from './images/circular-rangoli.jpeg';
+import CornerPiece from './images/cirner-piece.jpeg';
+import DishCircle from './images/dish-circle.jpeg';
+import Ganapti from './images/ganapati.jpeg';
+import GudhiOrange from './images/gudhi-orange.jpeg';
+import Hibiscus from './images/hibiscus.jpeg';
+import Lotus from './images/lotus.jpeg';
+import KalashCorner from './images/kalash-corner-piece.jpeg';
+import KalashPanti from './images/kalash-panati.jpeg';
+import KalashPeackock from './images/kalsh-peacock.jpeg';
+import Krishna from './images/krishna.jpeg';
+import NathCorner from './images/nath-corner.jpeg';
+import OnlyGudhiRed from './images/only-gudhi-red.jpeg';
+import OnlyGudhiBlue from './images/only-gudhi-blue.jpeg';
+import OnlyGudhiOrange from './images/only-gudhi-orange.jpeg';
+import OnlyGudhiPink from './images/only-gudhi-pink.jpeg';
+import Saaree from './images/sarree.jpeg';
+import WelcomeLady from './images/welcome-lady.jpeg';
 import logo from './images/logo.jpeg';
 
 function App() {
 
   const projects = [
     {
-      title: "Diwali Rangoli",
-      description: "Brighten your home with this ready-made rangoli. Perfect for Diwali, bringing prosperity and positive energy.",
-      img: image1
+      title: "Circular Rangoli",
+      description: "A beautiful circular rangoli design to enhance the beauty of your home.",
+      img: CircularRangoli
     },
     {
-      title: "Navratri Special Rangoli",
-      description: "Celebrate the nine nights of Navratri with this colorful rangoli, symbolizing devotion and festivity.",
-      img: image2
+      title: "Corner Piece",
+      description: "A perfect corner piece rangoli to add elegance to your home decor.",
+      img: CornerPiece
     },
     {
-      title: "Makar Sankranti Kolam",
-      description: "Traditional kolam design for Makar Sankranti, representing new beginnings and harvest celebrations.",
-      img: image3
+      title: "Dish Circle",
+      description: "A unique dish circle rangoli design for special occasions.",
+      img: DishCircle
     },
     {
-      title: "Ganesh Chaturthi Rangoli",
+      title: "Ganapti Rangoli",
       description: "Auspicious rangoli with Lord Ganesha motifs, perfect for welcoming Bappa with divine blessings.",
-      img: image1
+      img: Ganapti
     },
     {
-      title: "Pongal Rangoli",
-      description: "Beautiful kolam-style rangoli to celebrate Pongal, symbolizing prosperity and gratitude for the harvest.",
-      img: image2
+      title: "Gudhi Orange",
+      description: "A vibrant Gudhi orange rangoli to celebrate traditional festivals.",
+      img: GudhiOrange
     },
     {
-      title: "Holi Themed Rangoli",
-      description: "Vibrant and colorful rangoli for Holi, spreading joy, happiness, and festive vibes.",
-      img: image3
+      title: "Hibiscus Rangoli",
+      description: "A beautiful hibiscus flower rangoli to add a touch of nature to your home.",
+      img: Hibiscus
     },
     {
-      title: "Onam Pookalam",
-      description: "Traditional floral rangoli (Pookalam) to celebrate the spirit of Onam and welcome King Mahabali.",
-      img: image1
+      title: "Lotus Rangoli",
+      description: "A serene lotus rangoli design to bring peace and tranquility.",
+      img: Lotus
     },
     {
-      title: "Karva Chauth Rangoli",
-      description: "Elegant rangoli for Karva Chauth, creating a divine ambiance for the festival of love and devotion.",
-      img: image2
+      title: "Kalash Corner",
+      description: "A traditional Kalash corner rangoli to celebrate auspicious occasions.",
+      img: KalashCorner
+    },
+    {
+      title: "Kalash Panti",
+      description: "A beautiful Kalash panti rangoli to enhance your festive decor.",
+      img: KalashPanti
+    },
+    {
+      title: "Kalash Peacock",
+      description: "A stunning Kalash peacock rangoli to add a royal touch to your home.",
+      img: KalashPeackock
+    },
+    {
+      title: "Krishna Rangoli",
+      description: "A divine Krishna rangoli to celebrate Janmashtami and other festivals.",
+      img: Krishna
+    },
+    {
+      title: "Nath Corner",
+      description: "A traditional Nath corner rangoli to add elegance to your home decor.",
+      img: NathCorner
+    },
+    {
+      title: "Gudhi Red",
+      description: "A vibrant Gudhi red rangoli to celebrate traditional festivals.",
+      img: OnlyGudhiRed
+    },
+    {
+      title: "Gudhi Blue",
+      description: "A vibrant Gudhi blue rangoli to celebrate traditional festivals.",
+      img: OnlyGudhiBlue
+    },
+    {
+      title: "Gudhi Orange",
+      description: "A vibrant Gudhi orange rangoli to celebrate traditional festivals.",
+      img: OnlyGudhiOrange
+    },
+    {
+      title: "Gudhi Pink",
+      description: "A vibrant Gudhi pink rangoli to celebrate traditional festivals.",
+      img: OnlyGudhiPink
+    },
+    {
+      title: "Saaree Rangoli",
+      description: "A beautiful Saaree rangoli to add a touch of tradition to your home.",
+      img: Saaree
+    },
+    {
+      title: "Welcome Lady",
+      description: "A welcoming lady rangoli to greet your guests with warmth and elegance.",
+      img: WelcomeLady
     }
   ];
-
 
   return (
     <div className="min-h-screen p-6">
@@ -60,12 +124,11 @@ function App() {
         </h1>
       </header>
 
-
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
         {projects.map((card, index) => (
           <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-            <img className="w-full h-40 object-cover" src={card.img} alt={card.title} />
+            <img className="w-full h-40 object-contain" src={card.img} alt={card.title} />
             <div className="p-4">
               <h2 className="text-xl font-semibold text-orange-700">{card.title}</h2>
               <p className="text-gray-700">{card.description}</p>
