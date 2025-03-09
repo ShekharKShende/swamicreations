@@ -146,7 +146,7 @@ function App() {
       {/* Subheader */}
       <div className="text-center my-8">
         <h2 className="text-2xl font-bold text-orange-700">Beautiful Ready Rangoli – Instant Elegance for Every Celebration!</h2>
-        <p className="text-gray-700 mt-2">Decorate your space effortlessly with vibrant, pre-designed rangolis—perfect for festivals, weddings, and special occasions.</p>
+        <p className="text-gray-700 mt-2">Decorate your space effortlessly with vibrant, pre-designed rangolis—perfect for festivals, weddings, and special occasions. Handmade custom rangolis are also available to suit your unique style and preferences.</p>
       </div>
 
       {/* Cards Section */}
