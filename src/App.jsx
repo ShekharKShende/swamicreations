@@ -127,8 +127,8 @@ function App() {
     }
   };
 
-  const handleEnquire = (title, imgUrl) => {
-    const message = `Hello, I would like to enquire about the ${title} rangoli. Here is the image: ${imgUrl}`;
+  const handleEnquire = (title) => {
+    const message = `Hello, I would like to enquire about the ${title} rangoli.`;
     const whatsappNumber = "+919881987729";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
@@ -163,7 +163,7 @@ function App() {
             <div className="p-4">
               <button
                 className="mt-4 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 w-full"
-                onClick={() => handleEnquire(card.title, card.img)}
+                onClick={() => handleEnquire(card.title)}
               >
                 Enquire on WhatsApp
               </button>
