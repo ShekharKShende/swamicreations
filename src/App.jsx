@@ -129,8 +129,8 @@ function App() {
     }
   };
 
-  const handleEnquire = (title) => {
-    const message = `Hello, I would like to enquire about the ${title} rangoli.`;
+  const handleEnquire = (title, imgUrl) => {
+    const message = `Hello, I would like to enquire about the ${title} rangoli. Here is the image: ${imgUrl}`;
     const whatsappNumber = "+919881987729";
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
@@ -191,7 +191,7 @@ function App() {
                 <div className="p-4">
                   <button
                     className="mt-4 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 w-full"
-                    onClick={() => handleEnquire(card.title)}
+                    onClick={() => handleEnquire(card.title, card.img)}
                   >
                     Enquire on WhatsApp
                   </button>
@@ -206,7 +206,7 @@ function App() {
         <div className="text-center my-8">
           <h2 className="text-2xl font-bold text-orange-700">Mat Rangoli</h2>
           <p className="text-gray-700 mt-2">Discover our beautiful collection of Mat Rangoli, perfect for adding a touch of elegance and tradition to your home decor.</p>
-          {/* Add Mat Rangoli content here */}
+          <p className="text-gray-700 mt-2">Coming Soon!</p>
         </div>
       )}
 
@@ -214,7 +214,7 @@ function App() {
         <div className="text-center my-8">
           <h2 className="text-2xl font-bold text-orange-700">Moti Art</h2>
           <p className="text-gray-700 mt-2">Explore our exquisite collection of Moti Art, perfect for adding a touch of elegance and tradition to your home decor.</p>
-          {/* Add Moti Art content here */}
+          <p className="text-gray-700 mt-2">Coming Soon!</p>
         </div>
       )}
 
